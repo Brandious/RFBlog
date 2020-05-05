@@ -21,7 +21,7 @@ const {
     updateUserDetails
 } = require('./api/users');
 
-app.get('/posts', getAllPosts);s
+app.get('/posts', getAllPosts);
 app.get('/post/:postId', getOnePost);
 app.get('/post', auth, getAllPostsByUserId);
 app.post('/post', auth,createPost);

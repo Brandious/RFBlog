@@ -13,6 +13,7 @@ exports.getAllPosts = (req, res) => {
           title: document.data().title,
           description: document.data().description,
           body: document.data().body,
+          user: document.data().username,
           createdAt: document.data().createdAt,
         });
       });
@@ -85,6 +86,7 @@ exports.createPost = (req, res) => {
       .then((document) => {
           const resPostItem = newPostItem;
           resPostItem.id = document.id;
+          resPostItem.username = document.username;
           return res.json(resPostItem);
       })
       .catch((err) => {
