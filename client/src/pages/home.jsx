@@ -14,7 +14,8 @@ import MenuIcon from '@material-ui/icons/Menu';
 //import { authMiddleWare } from '../util/auth'
 import StyledMenu from '../components/StyledMenu';
 import MobileDrawer from '../components/MobileDrawer';
-import Button from '@material-ui/core/Button';
+
+
 const styles = (theme) => 
 ({
     root: {

@@ -39,7 +39,10 @@ const styles = ((theme) => ({
 		padding: theme.spacing(2)
     },
     dialogueStyle: {
-		maxWidth: '50%'
+		maxWidth: '100%',
+		maxHeight: '80%'
+
+
 	},
 	cardActions: {
 		display: "flex",
@@ -218,6 +221,9 @@ class Post extends Component {
 									disableUnderline: true
 								}}
 							/>
+							<Typography variant="body2" component="p" color="primary" className={classes.author}>
+											Written by: {this.state.user}
+										</Typography>
 						</DialogContent>
 					</Dialog>
 

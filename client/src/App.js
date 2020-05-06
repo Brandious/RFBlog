@@ -3,6 +3,8 @@ import {BrowserRouter as Router, Route, Switch} from 'react-router-dom';
 import 'normalize.css';
 
 import home from './pages/home';
+import login from './pages/login';
+import signup from './pages/signup';
 
 function App() {
   return (
@@ -10,6 +12,8 @@ function App() {
         <div>
             <Switch>
                 <Route exact path="/" component={home}/>
+                <Route exact path="/login" component={login}/> 
+                <Route exact path="/signup" component={signup}/>
             </Switch>
         </div>
     </Router>
