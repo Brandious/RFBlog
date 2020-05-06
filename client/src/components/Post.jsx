@@ -6,6 +6,8 @@ import CircularProgress from '@material-ui/core/CircularProgress';
 import {Grid, Card, CardContent, CardActions, Button} from '@material-ui/core';
 import {Dialog, DialogTitle, TextField} from '@material-ui/core';
 import MuiDialogContent from '@material-ui/core/DialogContent';
+import ThumbUpIcon from '@material-ui/icons/ThumbUp';
+import ShareIcon from '@material-ui/icons/Share';
 
 import axios from 'axios';
 import dayjs from 'dayjs';
@@ -89,7 +91,7 @@ class Post extends Component {
         })
     }
 
-    componentWillMount = () => {
+    componentDidMount = () => {
         axios.get('/posts')
         .then((res) => {
           this.setState({
@@ -172,10 +174,10 @@ class Post extends Component {
 											View{' '}
 										</Button>
 										<Button size="small" color="primary" onClick={() => this.handleLike({ post })}>
-											Like
+											<ThumbUpIcon/>
 										</Button>
 										<Button size="small" color="primary" onClick={() => this.shareHandler({ post })}>
-											share
+											<ShareIcon/>
 										</Button>
 										</div>
 
