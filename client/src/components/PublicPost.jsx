@@ -16,7 +16,7 @@ import relativeTime from 'dayjs/plugin/relativeTime';
 const styles = ((theme) => ({
     content: {
         flexGrow: 1,
-        padding: theme.spacing(3),
+        padding: theme.spacing(3)
     },
     toolbar: theme.mixins.toolbar,
     title: {
@@ -41,7 +41,6 @@ const styles = ((theme) => ({
     dialogueStyle: {
 		maxWidth: '100%',
 		maxHeight: '80%'
-
 
 	},
 	cardActions: {
@@ -141,8 +140,8 @@ class Post extends Component {
             return(
                 <main className={classes.content}>
                     <div className={classes.toolbar} />
-
-                    <Grid container spacing={3}>
+					<Typography color="primary" variant="h3" className={classes.text}>Public Posts</Typography>
+                    <Grid container spacing={2}>
 						{this.state.posts.map((post) => (
 							<Grid item key={post.postId}>
 								<Card className={classes.root} key={post.postId}variant="outlined">

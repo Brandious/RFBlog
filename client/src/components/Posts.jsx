@@ -36,7 +36,7 @@ import MuiDialogContent from "@material-ui/core/DialogContent";
 const styles = (theme) => ({
   content: {
     flexGrow: 1,
-    padding: theme.spacing(3),
+    padding: theme.spacing(3)
   },
   toolbar: theme.mixins.toolbar,
   title: {
@@ -62,7 +62,7 @@ const styles = (theme) => ({
     marginTop: theme.spacing(10),
   },
   root: {
-    minWidth: 500,
+    minWidth: 470,
   },
   bullet: {
     display: "inline-block",
@@ -85,7 +85,7 @@ const styles = (theme) => ({
   },
   viewRoot: {
     margin: 0,
-    padding: theme.spacing(3),
+    padding: theme.spacing(2),
   },
   closeButton: {
     position: "absolute",
@@ -375,10 +375,12 @@ class Posts extends Component {
               </Grid>
             </form>
           </Dialog>
-
-          <Grid container spacing={5}>
+          
+          <Typography color="primary" variant="h3" className={classes.text} noWrap>Your Posts</Typography>
+          <Grid container spacing={2}>
+              
             {this.state.posts.map((post) => (
-              <Grid item key={post.postId} xs={12} sm={6}>
+              <Grid item key={post.postId}>
                 <Card className={classes.root} variant="outlined">
                   <CardContent>
                     <Typography variant="h5" component="h2">

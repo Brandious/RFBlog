@@ -12,13 +12,18 @@ import Link from '@material-ui/core/Link';
 import { authMiddleware } from '../util/auth'
 import axios from 'axios';
 import Posts from '../components/Posts';
+import { Typography } from '@material-ui/core';
 
 const styles = (theme) => 
 ({
     root: {
-        display: "flex"
+        display: "flex",
+        justifyContent: 'space-between',
+        alignItems: 'space-between',
+        flexDirection: 'column',
     },
     content: {
+        display: 'flex',
         flexGrow: 1,
         padding: theme.spacing(3)
     },
@@ -31,8 +36,7 @@ const styles = (theme) =>
         top: '25%'
     },
     text: {
-        margin: '10px',
-        padding: '10px',
+        padding: '100px 0 0 50px',
     }
   
 });
@@ -111,9 +115,13 @@ class home extends Component {
                 <div className={classes.root}>
                         <CssBaseline />
                         <Navbar/>
-                     <div>
-                         <PublicPost/>
-                        {this.state.auth? <Posts/>: <div className={classes.text}>	<Link href="signup" variant="body2">
+                     <div classes={classes.content}>
+                      
+                                <PublicPost/>
+                        
+                       
+                        {this.state.auth? 
+                                    <Posts/>: <div className={classes.text}>	<Link href="signup" variant="body2">
 									{"Don't have an account? Sign Up"}
 								</Link><br/>
                                 <Link href="login" variant="body2">
