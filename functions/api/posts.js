@@ -106,8 +106,8 @@ exports.deletePost = (req, res) =>
         if (!doc.exists)
           return res.status(404).json({ error: "Post not found" });
 
-        if (doc.data().username !== request.user.username) {
-          return response.status(403).json({ error: "Unauthorized" });
+        if (doc.data().username !== req.user.username) {
+          return res.status(403).json({ error: "Unauthorized" });
         }
         return document.delete();
       })

@@ -12,7 +12,7 @@ import MenuIcon from '@material-ui/icons/Menu';
 import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
 import { makeStyles, useTheme } from '@material-ui/core/styles';
-import SearchIcon from '@material-ui/icons/Search';
+
 import InputBase from '@material-ui/core/InputBase';
 import StyledMenu from './StyledMenu';
 
@@ -143,7 +143,7 @@ function ResponsiveDrawer(props) {
        <ListItem>
        <Typography variant="h6" className={classes.navItem} color="primary" noWrap>
                                          <StyledMenu>
-                                             User
+                                             Profile
                                          </StyledMenu>
                                     </Typography>
        </ListItem>

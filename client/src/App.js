@@ -6,6 +6,8 @@ import home from './pages/home';
 import login from './pages/login';
 import signup from './pages/signup';
 
+import Posts from './components/Posts';
+
 function App() {
   return (
     <Router>
@@ -14,6 +16,7 @@ function App() {
                 <Route exact path="/" component={home}/>
                 <Route exact path="/login" component={login}/> 
                 <Route exact path="/signup" component={signup}/>
+                <Route exact path="/posts" componetn={Posts}/>
             </Switch>
         </div>
     </Router>

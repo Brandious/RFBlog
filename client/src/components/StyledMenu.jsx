@@ -11,6 +11,8 @@ import LoginIcon from '@material-ui/icons/MeetingRoom';
 import SearchIcon from '@material-ui/icons/Search';
 import FindUsersIcon from '@material-ui/icons/GroupAdd';
 import { Link } from '@material-ui/core';
+import SignUpIcon from '@material-ui/icons/PersonAdd';
+
 
 const StyledMenu = withStyles({
   paper: {
@@ -67,7 +69,7 @@ export default function CustomizedMenus(props) {
       </Button>
       
       { 
-        (props.children === 'User') ?
+        (props.children === 'Profile') ?
                  <StyledMenu
         id="customized-menu"
         anchorEl={anchorEl}
@@ -75,25 +77,19 @@ export default function CustomizedMenus(props) {
         open={Boolean(anchorEl)}
         onClose={handleClose}
       >
-        <StyledMenuItem>
-          <ListItemIcon>
-            <InboxIcon fontSize="small" />
-          </ListItemIcon>
-          <ListItemText primary="Inbox" />
-        </StyledMenuItem>
-        <StyledMenuItem>
-          <ListItemIcon>
-            <GearIcon fontSize="small" />
-          </ListItemIcon>
-          <ListItemText primary="Options" />
-        </StyledMenuItem>
-        <StyledMenuItem>
+        <StyledMenuItem button component="a" href="/login">
           <ListItemIcon>
             <LoginIcon fontSize="small" />
           </ListItemIcon>
           <ListItemText primary="Login" />
         </StyledMenuItem>
-      </StyledMenu>
+      <StyledMenuItem button component="a" href="/signup">
+      <ListItemIcon>
+        <SignUpIcon fontSize="small" />
+      </ListItemIcon>
+      <ListItemText primary="Signup" />
+    </StyledMenuItem>
+  </StyledMenu>
       :
         (props.children === 'Explore') ? 
             

@@ -120,26 +120,13 @@ class Post extends Component {
             }
         }))(MuiDialogContent);
 
-        const { open, errors, viewOpen } = this.state;
+        const {  viewOpen } = this.state;
 
-        const handleClickOpen = () => {
-			this.setState({
-				postId: '',
-                title: '',
-                description: '',
-				body: '',
-				buttonType: '',
-				open: true
-			});
-		};
 
         const handleViewClose = () => {
 			this.setState({ viewOpen: false });
         };
-        
-        const handleClose = (event) => {
-			this.setState({ open: false });
-		};
+   
 
         if (this.state.uiLoading === true) {
 			return (
