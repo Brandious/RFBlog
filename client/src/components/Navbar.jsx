@@ -93,7 +93,7 @@ function Navbar(props) {
         <>
                  <div className={classes.drawer}>
                                 <MobileDrawer/>
-                        </div>
+                 </div>
                         <AppBar position="fixed" className={classes.appBar}>
                             <Toolbar className={classes.toolBar}>
                                
