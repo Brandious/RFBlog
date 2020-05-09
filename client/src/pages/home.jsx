@@ -12,7 +12,6 @@ import Link from '@material-ui/core/Link';
 import { authMiddleware } from '../util/auth'
 import axios from 'axios';
 import Posts from '../components/Posts';
-import { Typography } from '@material-ui/core';
 
 const styles = (theme) => 
 ({
@@ -114,7 +113,7 @@ class home extends Component {
             return(
                 <div className={classes.root}>
                         <CssBaseline />
-                        <Navbar/>
+                        <Navbar auth = {this.state.auth}/>
                      <div classes={classes.content}>
                       
                                 <PublicPost/>

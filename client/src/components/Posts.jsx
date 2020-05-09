@@ -23,7 +23,6 @@ import AppBar from "@material-ui/core/AppBar";
 import Toolbar from "@material-ui/core/Toolbar";
 import IconButton from "@material-ui/core/IconButton";
 import CloseIcon from "@material-ui/icons/Close";
-import Slide from "@material-ui/core/Slide";
 import TextField from "@material-ui/core/TextField";
 import Grid from "@material-ui/core/Grid";
 import Card from "@material-ui/core/Card";
@@ -70,7 +69,7 @@ const styles = (theme) => ({
     transform: "scale(0.8)",
   },
   pos: {
-    marginBottom: 12,
+    marginBottom: 1,
   },
   uiProgress: {
     position: "fixed",
@@ -206,7 +205,7 @@ class Posts extends Component {
 
     const DialogContent = withStyles((theme) => ({
       viewRoot: {
-        padding: theme.spacing(6),
+        padding: theme.spacing(3),
       },
     }))(MuiDialogContent);
 
@@ -281,7 +280,7 @@ class Posts extends Component {
     else
       return (
         <main className={classes.content}>
-          <div className={classes.toolbar} />
+         
           <IconButton
             className={classes.floatingButton}
             color="primary"
@@ -376,7 +375,7 @@ class Posts extends Component {
             </form>
           </Dialog>
           
-          <Typography color="primary" variant="h3" className={classes.text} noWrap>Your Posts</Typography>
+          <Typography color="primary" variant="h3" noWrap>Your Posts</Typography>
           <Grid container spacing={2}>
               
             {this.state.posts.map((post) => (

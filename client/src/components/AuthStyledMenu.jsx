@@ -5,11 +5,12 @@ import Menu from '@material-ui/core/Menu';
 import MenuItem from '@material-ui/core/MenuItem';
 import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItemText from '@material-ui/core/ListItemText';
-import LoginIcon from '@material-ui/icons/MeetingRoom';
+import InboxIcon from '@material-ui/icons/MoveToInbox';
+import GearIcon from '@material-ui/icons/Settings';
 import SearchIcon from '@material-ui/icons/Search';
 import FindUsersIcon from '@material-ui/icons/GroupAdd';
 import { Link } from '@material-ui/core';
-import SignUpIcon from '@material-ui/icons/PersonAdd';
+import LogOutIcon from '@material-ui/icons/ExitToApp';
 
 
 const StyledMenu = withStyles({
@@ -63,7 +64,7 @@ export default function CustomizedMenus(props) {
         color="inherit"
         onClick={handleClick}
       >
-        {(props.children !== 'Home') ? props.children: <Link href="/" color="inherit" underline="none">{props.children}</Link> }
+        {(props.children !== 'Home') ? (props.children !== 'Dashboard') ? props.children :<Link href="/dashboard" color="inherit" underline="none">{props.children}</Link> : <Link href="/" color="inherit" underline="none">{props.children}</Link> }
       </Button>
       
       { 
@@ -75,17 +76,23 @@ export default function CustomizedMenus(props) {
         open={Boolean(anchorEl)}
         onClose={handleClose}
       >
-        <StyledMenuItem button component="a" href="/login">
+        <StyledMenuItem button component="a" href="/#">
           <ListItemIcon>
-            <LoginIcon fontSize="small" />
+            <InboxIcon fontSize="small" />
           </ListItemIcon>
-          <ListItemText primary="Login" />
+          <ListItemText primary="Inbox" />
         </StyledMenuItem>
-      <StyledMenuItem button component="a" href="/signup">
+        <StyledMenuItem button component="a" href="/#">
+          <ListItemIcon>
+            <GearIcon fontSize="small" />
+          </ListItemIcon>
+          <ListItemText primary="Settings" />
+        </StyledMenuItem>
+      <StyledMenuItem button component="a" href="/#">
       <ListItemIcon>
-        <SignUpIcon fontSize="small" />
+        <LogOutIcon fontSize="small" />
       </ListItemIcon>
-      <ListItemText primary="Signup" />
+      <ListItemText primary="Log Out" />
     </StyledMenuItem>
   </StyledMenu>
       :
@@ -114,8 +121,7 @@ export default function CustomizedMenus(props) {
 
         : null
       }
-   
-   
+
     </div>
   );
 }

@@ -12,7 +12,7 @@ import withStyles from '@material-ui/core/styles/withStyles';
 import Typography from '@material-ui/core/Typography';
 import CircularProgress from '@material-ui/core/CircularProgress'
 import CloudUploadIcon from '@material-ui/icons/CloudUpload';
-import { Card, CardActions, CardContent, Divider, Button, Grid, TextField, CssBaseline} from '@material-ui/core';
+import { Card, CardActions, CardContent, Divider, Button, Grid, TextField} from '@material-ui/core';
 
 
 const styles = ((theme) => ({
@@ -107,7 +107,7 @@ class account extends Component {
              })
              .catch(err => {
                  if(err.response.status === 403)
-                    this.props.history.push('/login');
+                    window.location.href=('/login');
 
                 this.setState({errorMsg: 'Greska u dohvatanju podataka'});
              });

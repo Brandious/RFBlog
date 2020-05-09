@@ -1,14 +1,8 @@
 import React from 'react'
 
-import AppBar from '@material-ui/core/AppBar';
-import Toolbar from '@material-ui/core/Toolbar';
+import { withStyles, fade } from '@material-ui/core';
 import Typography from '@material-ui/core/Typography';
-import {withStyles, fade} from '@material-ui/core/styles';
-
-import MobileDrawer from './MobileDrawer';
-import LoggedInNavigation from './LoggedInNavigation';
-import LoggedOutNavigation from './LoggedOutNavigation';
-import AuthMobileDrawer from './AuthMobileDrawer';
+import StyledMenu from './StyledMenu';
 
 const styles = (theme) => ({
     toolbar: theme.mixins.toolbar,
@@ -86,28 +80,32 @@ const styles = (theme) => ({
 
 })
 
-function Navbar(props) {
-    const { classes, auth } = props;
-    
+function LoggedOutNavigation(props) {
+
+    const { classes } = props;
+
     return (
-        <>
-                 <div className={classes.drawer}>
-                             {auth ? <AuthMobileDrawer/> : <MobileDrawer/>}   
-                 </div>
-                        <AppBar position="fixed" className={classes.appBar} elevation={0}>
-                            <Toolbar className={classes.toolBar}>
-                               
-                                <Typography variant="h4" noWrap>
-                                    BLOG
-                                </Typography>
+        <div className={classes.nav}>
+                                                                  
+        <Typography variant="h6"className={classes.navItem}  noWrap>
+             <StyledMenu >
+                 Home
+             </StyledMenu>
+        </Typography>
 
+        <Typography variant="h6"className={classes.navItem}  noWrap>
+             <StyledMenu >
+                 Explore
+             </StyledMenu>
+        </Typography>
 
-                                  { auth ? <LoggedInNavigation/> : <LoggedOutNavigation/> }      
-                               
-                            </Toolbar>
-                        </AppBar>
-        </>
+        <Typography variant="h6" className={classes.navItem}  noWrap>
+             <StyledMenu >
+                 Profile
+             </StyledMenu>
+        </Typography> 
+        </div>
     )
 }
 
-export default withStyles(styles)(Navbar);
+export default withStyles(styles)(LoggedOutNavigation);
