@@ -12,7 +12,7 @@ import MenuIcon from '@material-ui/icons/Menu';
 import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
 import { makeStyles, useTheme } from '@material-ui/core/styles';
-
+import Avatar from '@material-ui/core/Avatar';
 import AuthStyledMenu from './AuthStyledMenu';
 
 const drawerWidth = 240;
@@ -84,7 +84,14 @@ const useStyles = makeStyles((theme) => ({
   },
   navItem: {
     color: 'inherit'
-  }
+  },
+  avatar: {
+    height: 110,
+    width: 100,
+    flexShrink: 0,
+    flexGrow: 0,
+    objectFit: "contain"
+}
     
 }));
 
@@ -109,6 +116,13 @@ function ResponsiveDrawer(props) {
     
       <Divider />
       <List className={classes.nav}>
+        <ListItem>  
+                   <Divider/>
+                            <center>
+                                <Avatar src={props.avatar} className={classes.avatar}/>
+                            </center>
+                        <Divider/>  
+        </ListItem>
        <ListItem>
        <Typography variant="h6"className={classes.navItem} color="primary"  noWrap>
                                          <AuthStyledMenu>

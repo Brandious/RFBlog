@@ -100,7 +100,7 @@ class home extends Component {
 
     render() {
         const { classes } = this.props;	
-
+      
 		if (this.state.uiLoading === true) {
 			return (
 				<div className={classes.root}>
@@ -113,7 +113,7 @@ class home extends Component {
             return(
                 <div className={classes.root}>
                         <CssBaseline />
-                        <Navbar auth = {this.state.auth}/>
+                        <Navbar auth = {this.state.auth} avatar={this.state.imgUrl}/>
                      <div classes={classes.content}>
                       
                                 <PublicPost/>

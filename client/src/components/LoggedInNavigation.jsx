@@ -3,6 +3,10 @@ import React from 'react'
 import { withStyles, fade } from '@material-ui/core';
 import Typography from '@material-ui/core/Typography';
 import AuthStyledMenu from './AuthStyledMenu';
+import Divider from '@material-ui/core/Divider';
+import Avatar from '@material-ui/core/Avatar';
+
+
 
 const styles = (theme) => ({
     toolbar: theme.mixins.toolbar,
@@ -19,9 +23,11 @@ const styles = (theme) => ({
     nav: {
         display: 'flex',
         flexDirection: 'row',
-        [theme.breakpoints.down('md')]:{
+        [theme.breakpoints.down('sm')]:{
             display: 'none',
-        }
+        },
+        
+        alignItems: 'center'
     },
     drawer: {
         [theme.breakpoints.up('md')]: {
@@ -76,6 +82,14 @@ const styles = (theme) => ({
             width: '20ch',
           },
         },
+
+        avatar: {
+            height: 110,
+            width: 100,
+            flexShrink: 0,
+            flexGrow: 0,
+            objectFit: "contain"
+        }
       },
 
 })
@@ -83,10 +97,12 @@ const styles = (theme) => ({
 function LoggedInNavigation(props) {
 
     const { classes } = props;
-
+    console.log(props.avatar);
     return (
         <div className={classes.nav}>
-                                                                  
+
+                        
+        
         <Typography variant="h6"className={classes.navItem}  noWrap>
              <AuthStyledMenu >
                  Home
@@ -110,6 +126,12 @@ function LoggedInNavigation(props) {
                  Dashboard
              </AuthStyledMenu>
         </Typography> 
+
+                        <Divider/>
+                            <center>
+                                <Avatar src={props.avatar} className={classes.avatar}/>
+                            </center>
+                        <Divider/>  
         </div>
     )
 }

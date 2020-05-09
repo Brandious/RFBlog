@@ -110,20 +110,7 @@ function ResponsiveDrawer(props) {
     
       <Divider />
       <List className={classes.nav}>
-          <ListItem>
-          <div className={classes.search}>
-                                        <InputBase
-                                        className={classes.navItem}
-                                        placeholder="Search…"
-                                        classes={{
-                                            root: classes.inputRoot,
-                                            input: classes.inputInput, 
-                                        }}
-                                        inputProps={{ 'aria-label': 'search' }}
-                                        />
-                                    </div>
-          </ListItem>
-       <ListItem>
+             <ListItem>
        <Typography variant="h6"className={classes.navItem} color="primary"  noWrap>
                                          <StyledMenu>
                                              Home

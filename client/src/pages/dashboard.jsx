@@ -102,7 +102,7 @@ class dashboard extends Component {
         return (
             <div classes={classes.root}>
                 <CssBaseline/>
-                <Navbar auth={this.state.auth} />
+                <Navbar auth={this.state.auth} avatar={this.state.imgUrl} />
 
                 <div className={classes.content}>
                    <Tabs variant="fullWidth" orientation="vertical"/>

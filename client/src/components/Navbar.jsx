@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { Component } from 'react'
 
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
@@ -86,13 +86,22 @@ const styles = (theme) => ({
 
 })
 
-function Navbar(props) {
-    const { classes, auth } = props;
+class Navbar extends Component {
+  
+  constructor(props)
+  {
+    super(props);
+
+  }
+
+
+  render(){
+    const { classes, auth } = this.props;
     
     return (
         <>
                  <div className={classes.drawer}>
-                             {auth ? <AuthMobileDrawer/> : <MobileDrawer/>}   
+                             {auth ? <AuthMobileDrawer avatar={this.props.avatar}/> : <MobileDrawer/>}   
                  </div>
                         <AppBar position="fixed" className={classes.appBar} elevation={0}>
                             <Toolbar className={classes.toolBar}>
@@ -102,12 +111,12 @@ function Navbar(props) {
                                 </Typography>
 
 
-                                  { auth ? <LoggedInNavigation/> : <LoggedOutNavigation/> }      
+                                  { auth ? <LoggedInNavigation avatar={this.props.avatar}/> : <LoggedOutNavigation/> }      
                                
                             </Toolbar>
                         </AppBar>
         </>
     )
 }
-
+}
 export default withStyles(styles)(Navbar);
