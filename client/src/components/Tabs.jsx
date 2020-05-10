@@ -88,8 +88,8 @@ export default function FullWidthTabs() {
           aria-label="full width tabs example"
         >
           <Tab label="Posts" {...a11yProps(0)} />
-          <Tab label="Profile" {...a11yProps(1)} />
-          <Tab label="Likes" {...a11yProps(2)} />
+          <Tab label="Followers" {...a11yProps(1)} />
+          <Tab label="Profile" {...a11yProps(2)} />
         </Tabs>
       </AppBar>
       <SwipeableViews
@@ -101,13 +101,10 @@ export default function FullWidthTabs() {
           <Posts />
         </TabPanel>
         <TabPanel value={value} index={1} dir={theme.direction}>
+          Followers Managment
+        </TabPanel>
+        <TabPanel value={value} index={2} dir={theme.direction}>
           <Profile />
-        </TabPanel>
-        <TabPanel value={value} index={2} dir={theme.direction}>
-          {"Likes"}
-        </TabPanel>
-        <TabPanel value={value} index={2} dir={theme.direction}>
-          {"Popularity"}
         </TabPanel>
       </SwipeableViews>
     </div>

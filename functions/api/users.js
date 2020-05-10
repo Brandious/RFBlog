@@ -2,7 +2,8 @@ const { admin, db } = require('../util/admin');
 const firebaseConfig = require('../util/config');
 
 const firebase = require('firebase');
-
+const adminFirebase = require('firebase-admin');
+const {FieldValue} = adminFirebase.firestore;
 firebase.initializeApp(firebaseConfig);
 
 const { validateLoginData, validateSignupData } = require('../util/validators');
@@ -187,4 +188,58 @@ exports.updateUserDetails = (req, res) =>
                     message: "Cannot update value"
                 })
             })
+}
+
+exports.getFollowers = (req, res) => 
+{   
+    
+    db.doc(`/following/${req.user.user_id}`)
+      .get()
+      .then((data) => {
+          let users = [];
+          let prmArray = [];
+            //data.forEach((document) => {
+                users = data.data().follows
+            //})
+
+            users.forEach((user) => {
+               prmArray.push(db.collection('users')
+                  .where('userId', '==', user)
+                  .get()
+                  .then((retData) => {
+                    let returnUsers = {};
+                    retData.forEach((retUser) => {
+                        
+                        returnUsers = retUser.data()
+                            
+                    })
+                    return returnUsers;
+               }))
+
+             
+            })
+
+            Promise.all(prmArray).then(value => res.json(value))
+    
+      });
+}
+
+exports.followUser = (req, res) => 
+{   
+   console.log(req.user.user_id);
+
+    let followDoc = db.collection('following').doc(req.user.user_id);
+ 
+
+      
+      followDoc
+      .set({follows: FieldValue.arrayUnion(`${req.params.userId}`)}, {merge: true})
+      .then((document) => {
+        console.log(document);
+        res.status(200).json("You followed someone!")
+       })
+      .catch((err) => {
+            res.status(500).json({ error: 'Something went wrong!!!' });
+            console.error(err);
+      });
 }

@@ -18,7 +18,9 @@ const {
     signupUser,
     uploadProfilePhoto,
     getUserDetail,
-    updateUserDetails
+    updateUserDetails,
+    followUser,
+    getFollowers
 } = require('./api/users');
 
 app.get('/posts', getAllPosts);
@@ -33,5 +35,13 @@ app.post('/signup',signupUser);
 app.post('/user/image', auth, uploadProfilePhoto);
 app.get('/user', auth, getUserDetail);
 app.post('/user', auth, updateUserDetails);
+
+ app.post('/user/follow/:userId', auth, followUser);
+ app.get('/user/follow', auth, getFollowers);
+// app.post('/post/:id/like', auth, likePost);
+// app.post('/post/:id/share', auth, sharePost);
+// app.get('/post/query', searchPosts);
+// app.get('/user/query', findUsers);
+
 
 exports.api = functions.https.onRequest(app);
